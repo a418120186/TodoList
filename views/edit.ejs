@@ -1,0 +1,39 @@
+<% layout('layout')  -%>
+
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1> <%= title %></h1>
+            </div>
+        </div>
+   
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <form action="/create" method="post" accept-charset="utf-8">
+                    <input class="input" type="text" name="content" />
+                </form>
+            </div>
+        </div>
+       
+        <% todos.forEach( function( todo ){ %>
+         <div class="row">  
+              <div class="col-xs-2 text-center">
+                 <p><%= todo.updated_at %></p>
+            </div>
+            <div class="col-xs-6 text-center">
+              <% if( todo._id == current ){ %>
+                  <form action="/update/<%= todo._id %>" method="post" accept-charset="utf-8">
+                    <input type="text" name="content" value="<%= todo.content %>" />
+                  </form>
+              <% }else{ %>
+                    <a href="/edit/<%= todo._id %>" title="Update this todo item"><%= todo.content %></a>
+              <% } %>
+            </div>
+            <div class="col-xs-2 text-center">
+                  <a href="/edit/<%= todo._id %>" title="Edit this todo item">Edit</a>
+            </div>
+            <div class="col-xs-2 text-center">
+                  <a href="/destroy/<%= todo._id %>" title="Delete this todo item">Delete</a>
+            </div>
+         </div>
+        <% }); %>     
+

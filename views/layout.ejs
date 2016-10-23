@@ -2,17 +2,48 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能 -->
     <title>
         <%= title %>
     </title>
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/screen.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
-    <div id="layout" class="container-fluid">
-        <%- body -%>
+    <div id="wrap">
+        <div class="container">
+            <!-- 标题 -->
+            <div class="page-header text-center">
+                <h1> <%= title %></h1>
+            </div>
+            <!-- 新建待办事项输入框 -->
+            <div class="row"> 
+                <div class="panel panel-default col-xs-6 col-xs-offset-3">
+                    <div class="panel-body">
+                        <form action="/create" method="post" accept-charset="utf-8">
+                            <input class="form-control" type="text" name="content" placeholder="Enter Todo" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- 待办事项内容 -->
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 ">
+                    <%- body -%> <!--之后我们的内容就会填充再这个里面 -->  
+                </div>
+            </div>   
+        </div>
+    </div>
+    <!-- 页脚 -->
+    <div id="footer">
+        <div class="container text-center">
+            <p class="muted credit">Example Todo List By <a href="https://a418120186.github.io/Lion/">lion1ou</a>.</p>
+        </div>
     </div>
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>

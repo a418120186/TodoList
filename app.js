@@ -8,6 +8,7 @@ var logger = require('morgan'); //http请求日志记录器
 var cookieParser = require('cookie-parser'); //解析cookie
 var bodyParser = require('body-parser'); //处理请求body的中间件
 var engine = require('ejs-mate');
+var moment = require('moment');
 
 var app = express();
 var routes = require('./routes/index'); //home page接口
@@ -37,13 +38,20 @@ app.use('/', routes); //在app中注册routes该接口
 app.use('/users', users); //在app中注册users接口
 ///=======路由信息 （接口地址) 介绍===========//
 
+
+//时间数据格式化，引入moment
+app.locals.myDateFormat = function(date) {
+    return moment(date).format('YYYY-MM-DD HH:mm:ss');
+};
+
+
+
 // catch 404 and forward to error handler(捕获404错误，并转向错误处理程序)
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
-
 ///======= error handlers  错误处理程序  开始========//
 
 // development error handler(开发者错误处理程序)

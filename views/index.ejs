@@ -1,34 +1,16 @@
 <% layout('layout')  -%>
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <h1> <%= title %></h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <form action="/create" method="post" accept-charset="utf-8">
-                    <input class="input" type="text" name="content" />
-                </form>
-            </div>
-        </div>
-        <% todos.forEach( function( todo ){ %>
-            <div class="row">
-                <div class="col-xs-2 text-center">
-                    <p>
-                        <%= todo.updated_at %>
-                    </p>
-                </div>
-                <div class="col-xs-6 text-center">
-                    <p>
-                        <%= todo.content %>
-                    </p>
-                </div>
-                <div class="col-xs-2 text-center">
-                    <a href="/edit/<%= todo._id %>" title="Edit this todo item">Edit</a>
-                </div>
-                <div class="col-xs-2 text-center">
-                    <a href="/destroy/<%= todo._id %>" title="Delete this todo item">Delete</a>
-                </div>
-            </div>
-        <% }); %>
 
+
+    <% todos.forEach( function( todo ){ %>
+        
+            <div class="alert alert-info" role="alert">
+                <a  href="/edit/<%= todo._id %>" title="Edit this todo item">
+                    <%= todo.content %>
+                </a>
+                <!-- 只是一个删除按钮 -->
+                <a href="/destroy/<%= todo._id %>" title="Delete this todo item">
+                <button type="button" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </a>
+            </div>
+       
+        <% }); %>

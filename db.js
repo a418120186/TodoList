@@ -29,3 +29,4 @@ mongoose.connect('mongodb://localhost/todo'); //连接到mongoDB的todo数据库
 //该地址格式：mongodb://[username:password@]host:port/database[?options]
 //默认port为27017  
 module.exports = mongoose;
+

@@ -1,7 +1,7 @@
 # TodoList
 Express and MongoDB   TodoList  Example
 
-1. `git clone 'https://github.com/a418120186/TodoList.git' `
+1. `git clone 'https://github.com/lion1ou/TodoList.git' `
 
 2. `cd TodoList`
 
@@ -9,4 +9,4 @@ Express and MongoDB   TodoList  Example
 
 4. `npm start`
 
-关于代码的详情可以阅读：[https://a418120186.github.io/Lion/20161020-01](https://a418120186.github.io/Lion/20161020-01)
+关于代码的详情可以阅读：[https://lion1ou.github.io/Lion/20161020-01](https://lion1ou.github.io/Lion/20161020-01)
